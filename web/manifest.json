@@ -1,6 +1,6 @@
 {
-    "name": "intelligence_gov",
-    "short_name": "intelligence_gov",
+    "name": "chamber_deputies",
+    "short_name": "chamber_deputies",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
