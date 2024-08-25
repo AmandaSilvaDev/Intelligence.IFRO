@@ -95,7 +95,7 @@ class HomeContent extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0), // Adiciona padding ao Container.
             child: Image.asset(
-              'assets/images/logo_3', // Imagem exibida na tela inicial.
+              'assets/images/logo_3.png', // Imagem exibida na tela inicial.
               height: 140, // Altura da imagem.
             ),
           ),
