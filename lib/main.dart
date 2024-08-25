@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: browserRouter,
       initialRoute: routesMap['Home'],
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
