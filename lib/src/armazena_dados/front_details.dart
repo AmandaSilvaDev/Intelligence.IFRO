@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:chamber_deputies/src/models/frentes_detalhes%20.dart';
+import 'package:chamber_deputies/src/models/frentes_detalhes.dart';
 import 'package:chamber_deputies/src/repositories/front_details.dart';
 
 class FrontDetailsStore {

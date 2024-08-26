@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:chamber_deputies/src/screens/home.dart';
+
 
 // Importa serviços e rotas necessários
 import 'package:chamber_deputies/src/services/client.dart';

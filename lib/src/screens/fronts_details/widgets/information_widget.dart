@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Models of fronts details
-import 'package:chamber_deputies/src/models/frentes_detalhes%20.dart';
+import 'package:chamber_deputies/src/models/frentes_detalhes.dart';
 // Models of deputies
 import 'package:chamber_deputies/src/models/deputados.dart';
 

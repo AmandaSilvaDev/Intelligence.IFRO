@@ -46,7 +46,7 @@ class About extends StatelessWidget {
             children: [
               // Exibe uma imagem a partir dos assets do projeto.
               Image.asset(
-                'assets/images/logo_camara.png',
+                'assets/images/logo_3.png',
                 height: 140, // Define a altura da imagem.
               ),
               // Texto descritivo sobre o aplicativo.

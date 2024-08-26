@@ -20,7 +20,8 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 10),
+      scrollDirection: Axis.vertical,
       itemCount: widget.deputies.length,
       itemBuilder: (context, index) {
         final deputy = widget.deputies[index];
@@ -29,7 +30,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
           child: Container(
             decoration: BoxDecoration(
               color: const Color.fromRGBO(254, 254, 254, 1),
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(10),
               boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
@@ -39,14 +40,14 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
               ],
             ), //foto
             margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(254, 254, 254, 1),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(65),
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.black26,
@@ -56,15 +57,15 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                     ],
                   ),
                   child: CircleAvatar(
-                    radius: 10,
+                    radius: 65,
                     backgroundImage: NetworkImage(deputy.urlPhoto),
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 40),
                 Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   decoration: const BoxDecoration(
-                    color: Color.fromRGBO(144, 180, 113, 1),
+                    color: const Color.fromRGBO(254, 254, 254, 1),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
@@ -76,7 +77,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                         deputy.name,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Color.fromRGBO(144, 180, 113, 1),
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -85,7 +86,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Icon(
-                            color: Colors.white,
+                            color: Color.fromRGBO(144, 180, 113, 1),
                             Icons.location_on,
                             size: 16,
                           ),
@@ -93,7 +94,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                           Text(
                             deputy.uf,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color:Color.fromRGBO(144, 180, 113, 1),
                               fontSize: 16,
                             ),
                           ),
@@ -103,7 +104,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Icon(
-                            color: Colors.white,
+                            color: Color.fromRGBO(144, 180, 113, 1),
                             Icons.group,
                             size: 16,
                           ),
@@ -111,7 +112,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                           Text(
                             deputy.party,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: Color.fromRGBO(144, 180, 113, 1),
                               fontSize: 16,
                             ),
                           ),
