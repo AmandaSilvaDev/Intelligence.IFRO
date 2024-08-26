@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Chamber Deputies',
+      title: 'INTELLIGENCE',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
         appBarTheme: const AppBarTheme(

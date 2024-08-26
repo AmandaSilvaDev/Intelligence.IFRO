@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:chamber_deputies/src/screens/home.dart';
 
 // Importa serviços e rotas necessários
 import 'package:chamber_deputies/src/services/client.dart';
@@ -18,6 +19,7 @@ class Fronts extends StatefulWidget {
   @override
   State<Fronts> createState() => _FrontsState();
 }
+
 
 class _FrontsState extends State<Fronts> {
   // Define o título da AppBar como uma constante
@@ -148,7 +150,7 @@ class _FrontsState extends State<Fronts> {
                         onTap: () => frontDetailsPage(front),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(86, 185, 82, 1),
+                            color: const Color.fromRGBO(144, 180, 113, 1),
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: const [
                               BoxShadow(
@@ -180,13 +182,14 @@ class _FrontsState extends State<Fronts> {
             ),
           ),
           // Container que exibe os botões de navegação e a página atual
+
           Container(
             padding: const EdgeInsets.all(5),
             decoration: const BoxDecoration(
               color: Color.fromRGBO(254, 254, 254, 1),
               border: Border(
                 top: BorderSide(
-                  color: Color.fromRGBO(86, 185, 82, 1),
+                  color:Color.fromRGBO(144, 180, 113, 1),
                   width: 2,
                 ),
               ),
@@ -198,7 +201,7 @@ class _FrontsState extends State<Fronts> {
                 OutlinedButton(
                   onPressed: _previousPage,
                   style: OutlinedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(86, 185, 82, 1),
+                    backgroundColor: const Color.fromRGBO(144, 180, 113, 1),
                   ),
                   child: const Text(
                     'Anterior',
@@ -213,13 +216,14 @@ class _FrontsState extends State<Fronts> {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(144, 180, 113, 1),
                   ),
                 ),
                 // Botão para a próxima página
                 OutlinedButton(
                   onPressed: _nextPage,
                   style: OutlinedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(86, 185, 82, 1),
+                    backgroundColor: const Color.fromRGBO(144, 180, 113, 1),
                   ),
                   child: const Text(
                     'Próximo',
@@ -236,3 +240,4 @@ class _FrontsState extends State<Fronts> {
     );
   }
 }
+

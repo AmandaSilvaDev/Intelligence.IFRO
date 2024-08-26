@@ -223,7 +223,7 @@ class _ListMembersWidgetState extends State<ListMembersWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    margin: const EdgeInsets.only(top: 10),
+                                    margin: const EdgeInsets.only(top: 3),
                                     decoration: BoxDecoration(
                                       color: const Color.fromRGBO(
                                           254, 254, 254, 1),
@@ -246,7 +246,7 @@ class _ListMembersWidgetState extends State<ListMembersWidget> {
                                   Container(
                                     padding: const EdgeInsets.all(5),
                                     decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(86, 185, 82, 1),
+                                      color: Color.fromRGBO(144, 180, 113, 1),
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(10),
                                         bottomRight: Radius.circular(10),
