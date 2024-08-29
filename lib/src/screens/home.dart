@@ -119,7 +119,7 @@ class HomeContent extends StatelessWidget {
              Column(
               
               children: [
-                 const Party(),
+                
                 Container(
                   padding: const EdgeInsets.fromLTRB(10, 20, 30, 30),
                   child: Image.asset('assets/images/logo_3.png'),
@@ -209,93 +209,32 @@ class _PartyState extends State<Party> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                if (_selectedOption.isNotEmpty)
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Pesquisar por ${options[_selectedOption]}',
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                      ),
-                      onChanged: (value) {
-                        setState(() {
-                          search = value;
-                        });
-                      },
-                    ),
-                  ),
-                if (_selectedOption.isNotEmpty) const SizedBox(width: 10),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(144, 180, 113, 1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (_selectedOption.isEmpty)
-                        const Text(
-                          'Filtrar por:',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.filter_list,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          showCupertinoModalPopup(
-                            barrierColor: Colors.black.withOpacity(0.5),
-                            context: context,
-                            builder: (context) {
-                              return CupertinoActionSheet(
-                                title: const Text(
-                                  'Filtrar por:',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                actions: options.entries
-                                    .map(
-                                      (entry) => CupertinoActionSheetAction(
-                                        onPressed: () {
-                                          _setSelectedOption(entry.key);
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text(
-                                          entry.value,
-                                          style: const TextStyle(
-                                            color: Colors.black54,
-                                            fontSize: 20,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                    .toList(),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
+                 Container(
+            padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0,bottom: 8.0 ), // Adiciona padding ao Container.
+            child: Image.asset(
+              'assets/images/logo_3.png', // Imagem exibida na tela inicial.
+              height: 140, // Altura da imagem.
+        
+            
+            ),
+          ),
+
               ],
             ),
           ),
+          const Text('Partidos',
+              style: TextStyle(
+                  fontSize: 20, // Define o tamanho da fonte.
+                  fontWeight: FontWeight.bold, 
+                  color: Color.fromRGBO(144, 180, 113, 1),
+                  // Define o peso da fonte como negrito.
+                ),
+            
+          ),
+          
           Expanded(
             child: AnimatedBuilder(
               animation: Listenable.merge([
