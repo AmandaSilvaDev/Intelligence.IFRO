@@ -1,33 +1,36 @@
+// ignore: unused_import
+import 'package:chamber_deputies/src/screens/home.dart';
 import 'package:flutter/material.dart';
 
-import 'package:chamber_deputies/src/models/deputados.dart';
+import 'package:chamber_deputies/src/models/party.dart';
 
-class ListDeputiesWidget extends StatefulWidget {
-  final List<DeputiesModels> deputies;
-  final Function(DeputiesModels) deputyDetailsPage;
+class ListPartyWidget extends StatefulWidget {
+  final List<Partymodels> party;
+  final Function(Partymodels) PartyDetailsPage;
 
-  const ListDeputiesWidget({
+  const ListPartyWidget({
     super.key,
-    required this.deputies,
-    required this.deputyDetailsPage,
+    required this.party,
+    // ignore: non_constant_identifier_names
+    required this.PartyDetailsPage,
   });
 
   @override
-  State<ListDeputiesWidget> createState() => _ListDeputiesWidgetState();
+  State<ListPartyWidget> createState() => _ListPartyWidgetState();
 }
 
-class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
+class _ListPartyWidgetState extends State<ListPartyWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 10),
-      scrollDirection: Axis.vertical,
-      itemCount: widget.deputies.length,
+      scrollDirection: Axis.horizontal,
+      itemCount: widget.party.length,
       itemBuilder: (context, index)
        {
-        final deputy = widget.deputies[index];
+        final party = widget.party[index];
         return GestureDetector(
-          onTap: () => widget.deputyDetailsPage(deputy),
+          onTap: () => widget.PartyDetailsPage(party),
           child: Container(
             decoration: BoxDecoration(
               color: const Color.fromRGBO(254, 254, 254, 1),
@@ -59,7 +62,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                   ),
                   child: CircleAvatar(
                     radius: 65,
-                    backgroundImage: NetworkImage(deputy.urlPhoto),
+                    backgroundImage: NetworkImage(party.urlPhoto),
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -75,7 +78,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                   child: Column(
                     children: [
                       Text(
-                        deputy.name,
+                        party.name,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Color.fromRGBO(144, 180, 113, 1),
@@ -93,7 +96,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                           ),
                           const SizedBox(width: 5),
                           Text(
-                            deputy.uf,
+                            party.sigla,
                             style: const TextStyle(
                               color:Color.fromRGBO(144, 180, 113, 1),
                               fontSize: 16,
@@ -101,24 +104,7 @@ class _ListDeputiesWidgetState extends State<ListDeputiesWidget> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            color: Color.fromRGBO(144, 180, 113, 1),
-                            Icons.group,
-                            size: 16,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            deputy.party,
-                            style: const TextStyle(
-                              color: Color.fromRGBO(144, 180, 113, 1),
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
+                      
                     ],
                   ),
                 ),

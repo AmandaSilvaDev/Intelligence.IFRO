@@ -1,7 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chamber_deputies/src/routes/router.dart';
-
-
+// ignore: unused_import
+import 'package:chamber_deputies/src/armazena_dados/party.dart';
+import 'package:chamber_deputies/src/models/party.dart';
+// ignore: unused_import
+import 'package:chamber_deputies/src/repositories/party.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/party.dart';
+import 'package:chamber_deputies/src/services/client.dart';
 class Home extends StatefulWidget {
   const Home({super.key}); // Construtor da classe Home, que é um StatefulWidget.
 
@@ -39,6 +45,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         centerTitle: true, // Centraliza o título na AppBar.
         title: const Text(
@@ -50,7 +57,12 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      body: const HomeContent(), // Corpo da tela, exibindo o widget HomeContent.
+      body: 
+      
+     const Party(),
+      
+     
+       // Corpo da tela, exibindo o widget HomeContent.
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           // Itens da BottomNavigationBar.
@@ -77,6 +89,8 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white, // Cor de fundo da BottomNavigationBar.
         onTap: _onItemTapped, // Função chamada ao tocar em um item.
       ),
+      
+    
     );
   }
 }
@@ -87,8 +101,10 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    
+    return Container( 
       color: const Color.fromRGBO(254, 254, 254, 1), // Cor de fundo do Container.
+      
       child: ListView(
         children: [
           Container(
@@ -96,10 +112,239 @@ class HomeContent extends StatelessWidget {
             child: Image.asset(
               'assets/images/logo_3.png', // Imagem exibida na tela inicial.
               height: 140, // Altura da imagem.
+            
+            
+            ),
+          ),
+             Column(
+              
+              children: [
+                 const Party(),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 30, 30),
+                  child: Image.asset('assets/images/logo_3.png'),
+                )
+              ],
+              
+            )
+               
+        
+        
+        
+        
+        ],
+        
+      ),
+  
+    );
+  }
+  
+}
+class Party extends StatefulWidget {
+  const Party ({super.key});
+
+  @override
+  State<Party> createState() => _PartyState();
+}
+
+class _PartyState extends State<Party> {
+  static const String titleAppBar = 'Party';
+  final Map<String, String> options = {
+    'siglaPartido': 'Partido',
+    'sigla': 'UF',
+    'nome': 'Nome',
+  };
+  String _selectedOption = '';
+  String search = '';
+
+  final PartyStore store = PartyStore(
+    repository: PartyRepository(
+      client: HttpClient(),
+    ),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    store.getparty();
+  }
+  
+  void PartyDetailsPage(Partymodels party) {
+    Navigator.pushNamed(
+      context,
+      arguments: party,
+      routesMap['home']!,
+    );
+  }
+
+ void _setSelectedOption(String value) {
+    setState(() {
+      _selectedOption = value;
+    });
+  }
+   List<Partymodels> filterParty(List<Partymodels> party) {
+    switch (_selectedOption) {
+      case 'siglaPartido':
+        return party.where((party) {
+          return party.sigla.toLowerCase().contains(search.toLowerCase());
+        }).toList();
+      case 'siglaUf':
+        return party.where((party) {
+          return party.uf.toLowerCase().contains(search.toLowerCase());
+        }).toList();
+      case 'nome':
+        return party.where((party) {
+          return party.name.toLowerCase().contains(search.toLowerCase());
+        }).toList();
+      default:
+        return party;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (_selectedOption.isNotEmpty)
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Pesquisar por ${options[_selectedOption]}',
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          search = value;
+                        });
+                      },
+                    ),
+                  ),
+                if (_selectedOption.isNotEmpty) const SizedBox(width: 10),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(144, 180, 113, 1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (_selectedOption.isEmpty)
+                        const Text(
+                          'Filtrar por:',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.filter_list,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          showCupertinoModalPopup(
+                            barrierColor: Colors.black.withOpacity(0.5),
+                            context: context,
+                            builder: (context) {
+                              return CupertinoActionSheet(
+                                title: const Text(
+                                  'Filtrar por:',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                actions: options.entries
+                                    .map(
+                                      (entry) => CupertinoActionSheetAction(
+                                        onPressed: () {
+                                          _setSelectedOption(entry.key);
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          entry.value,
+                                          style: const TextStyle(
+                                            color: Colors.black54,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: AnimatedBuilder(
+              animation: Listenable.merge([
+                store.isLoading,
+                store.error,
+                store.value,
+              ]),
+              builder: (context, _) {
+                if (store.isLoading.value) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(Colors.amber),
+                    ),
+                  );
+                }
+
+                if (store.error.value.isNotEmpty) {
+                  return Center(
+                    child: Text(
+                      store.error.value,
+                      style: const TextStyle(color: Colors.red, fontSize: 16),
+                    ),
+                  );
+                }
+
+                if (store.value.value.isEmpty) {
+                  return const Center(
+                    child: Text(
+                      'Nenhum deputado encontrado.',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  );
+                }
+
+                final deputies = filterParty(store.value.value);
+
+                return ListPartyWidget(
+                  party: deputies,
+                  PartyDetailsPage: PartyDetailsPage,
+                );
+              },
             ),
           ),
         ],
       ),
     );
   }
-}
+
+  }

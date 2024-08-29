@@ -141,7 +141,7 @@ class _FrontsState extends State<Fronts> {
 
                   // Exibe a lista de frentes em um ListView
                   return ListView.builder(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(8),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: fronts.length,
@@ -153,7 +153,7 @@ class _FrontsState extends State<Fronts> {
                         child: Container(
                           decoration: BoxDecoration(
                             color: const Color.fromRGBO(144, 180, 113, 1),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(18),
                             boxShadow: const [
                               BoxShadow(
                                 color: Colors.white,
@@ -169,7 +169,7 @@ class _FrontsState extends State<Fronts> {
                               front.title,
                               style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                               textAlign: TextAlign.center,
