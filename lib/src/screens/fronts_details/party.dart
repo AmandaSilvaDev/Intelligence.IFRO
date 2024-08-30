@@ -1,18 +1,20 @@
 // ignore: unused_import
 import 'package:chamber_deputies/src/screens/home.dart';
 import 'package:flutter/material.dart';
-
+import 'package:chamber_deputies/src/routes/router.dart';
 import 'package:chamber_deputies/src/models/party.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
+import 'package:gap/gap.dart';
 
 class ListPartyWidget extends StatefulWidget {
   final List<Partymodels> party;
-  final Function(Partymodels) PartyDetailsPage;
+  final Function(Partymodels) partyDetailsPage;
 
   const ListPartyWidget({
     super.key,
     required this.party,
-    // ignore: non_constant_identifier_names
-    required this.PartyDetailsPage,
+    required this.partyDetailsPage,
+    
   });
 
   @override
@@ -23,18 +25,24 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 20 , horizontal: 10),
-      scrollDirection: Axis.horizontal,
+      
+      
+      padding: const EdgeInsets.all(8.0),
+      scrollDirection: Axis.vertical,
+      
+      
       itemCount: widget.party.length,
       itemBuilder: (context, index)
        {
         final party = widget.party[index];
+        
+        
         return GestureDetector(
-          onTap: () => widget.PartyDetailsPage(party),
+          onTap: () => widget.partyDetailsPage(party),
           child: Container(
             decoration: BoxDecoration(
               color: const Color.fromRGBO(254, 254, 254, 1),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(45),
               boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
@@ -42,9 +50,10 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                   offset: Offset(0, 2),
                 ),
               ],
-            ), //foto
+            ), 
             margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Row(
+            child: Column(
+              
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
@@ -65,14 +74,15 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                     backgroundImage: NetworkImage(party.urlPhoto),
                   ),
                 ),
-                const SizedBox(height: 40),
+                
+                const SizedBox(height: 5),
                 Container(
                   padding: const EdgeInsets.all(3),
                   decoration: const BoxDecoration(
                     color:  Color.fromRGBO(254, 254, 254, 1),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
                     ),
                   ),
                   child: Column(
@@ -91,12 +101,13 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                         children: [
                           const Icon(
                             color: Color.fromRGBO(144, 180, 113, 1),
-                            Icons.location_on,
+                            Icons.people_alt,
                             size: 16,
                           ),
                           const SizedBox(width: 5),
                           Text(
                             party.sigla,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               color:Color.fromRGBO(144, 180, 113, 1),
                               fontSize: 16,

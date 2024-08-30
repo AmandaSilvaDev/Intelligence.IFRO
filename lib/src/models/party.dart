@@ -23,10 +23,11 @@ class Partymodels {
       id: map['id'] ?? 0,
       uri: map['uri'] ?? '',
       name: map['nome'] ?? '',
-      sigla: map['siglaPartido'] ?? '',
+      sigla: map['sigla'] ?? '',
       uf: map['siglaUf'] ?? '',
-      urlPhoto: map['urlFoto'] ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      urlPhoto: map['urlLogo'] ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
       email: map['email'] ?? '',
     );
   }
+  
 }

@@ -40,16 +40,30 @@ class PartyStore {
     }
   }
 
-  Future filterDeputies(String? name, String? sigla, int? id) async {
+  Future filterparty(String? name, String? sigla, int? id, String? urlLogo) async {
     isLoading.value = true;
 
     try {
-      final result = await repository.filterparty(name, sigla, id);
+      final result = await repository.filterparty(name, sigla, id, urlLogo);
       value.value = result;
     } on Exception catch (e) {
       error.value = e.toString();
     } finally {
       isLoading.value = false;
     }
+  
   }
+  Future filterpartydetalhes(String? name, String? sigla, int? id, String? urlLogo) async {
+    isLoading.value = true;
+
+    try {
+      final result = await repository.filterparty(name, sigla, id, urlLogo);
+      value.value = result;
+    } on Exception catch (e) {
+      error.value = e.toString();
+    } finally {
+      isLoading.value = false;
+    }
+    }
+  
 }

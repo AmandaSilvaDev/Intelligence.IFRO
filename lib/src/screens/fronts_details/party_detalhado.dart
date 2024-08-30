@@ -1,7 +1,9 @@
 import 'package:chamber_deputies/src/screens/deputy_details/widgets/cabinet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
-import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:chamber_deputies/src/models/party.dart';
+import 'package:chamber_deputies/src/routes/router.dart';
+
 // Services
 import 'package:chamber_deputies/src/services/client.dart';
 // Models for Deputies
@@ -10,6 +12,8 @@ import 'package:chamber_deputies/src/models/deputados.dart';
 import 'package:chamber_deputies/src/repositories/party.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party.dart';
 import 'package:chamber_deputies/src/armazena_dados/party_detalhes.dart';
+import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
+
 
 class PartyDetails extends StatefulWidget {
   final DeputiesModels party;
@@ -24,7 +28,7 @@ class PartyDetails extends StatefulWidget {
 }
 
 class _PartyDetailsState extends State<PartyDetails> {
-  static const String titleAppBar = 'Detalhes do Deputado';
+  static const String titleAppBar = 'Detalhes do Partido';
   late PartyDetailsStore storePartyDetails;
 
   @override
@@ -34,7 +38,7 @@ class _PartyDetailsState extends State<PartyDetails> {
     storePartyDetails = PartyDetailsStore(
       repository: PartyDetailsRepository(
         client: HttpClient(),
-        idDeputy: widget.deputy.id,
+        idParty: widget.party.id,
       ),
     );
     storePartyDetails.getPartyDetails();
@@ -86,12 +90,13 @@ class _PartyDetailsState extends State<PartyDetails> {
               );
             }
 
-            if (storePartyDetails.value.value.name == null) {
+            if (storePartyDetails.value.value.nome == null) {
               return const Center(
                 child: Text('Nenhum dado encontrado!'),
               );
             }
 
+            // ignore: non_constant_identifier_names
             final PartyDetails = storePartyDetails.value.value;
 
             return SingleChildScrollView(
@@ -100,31 +105,14 @@ class _PartyDetailsState extends State<PartyDetails> {
                 child: Column(
                   children: [
                     Text(
-                      PartyDetails.civilName ?? '',
+                      PartyDetails.nome ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    InformationDeputyWidget(
-                      deputy: widget.deputy,
-                      PartyDetails: PartyDetails,
-                    ),
-                    const SizedBox(height: 10),
-                    CabinetWidget(
-                      deputy: widget.deputy,
-                      PartyDetails: PartyDetails,
-                    ),
-                    const SizedBox(height: 10),
-                    ExpensesWidget(deputy: widget.deputy),
-                    const SizedBox(height: 10),
-                    OccupationsWidget(deputy: widget.deputy),
-                    const SizedBox(height: 10),
-                    HistoricWidget(deputy: widget.deputy),
+                    
                   ],
                 ),
               ),
