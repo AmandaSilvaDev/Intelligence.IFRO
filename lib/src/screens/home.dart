@@ -170,11 +170,11 @@ class _PartyState extends State<Party> {
     store.getparty();
   }
   
-  void partyDetailsPage(Partymodels party) {
+  void partyDetailsPage(Partymodels partyDetails) {
     Navigator.pushNamed(
       context,
-      arguments: party,
-      routesMap['home']!,
+      arguments: partyDetails,
+      routesMap['Party_detalhado']!,
     );
   }
 

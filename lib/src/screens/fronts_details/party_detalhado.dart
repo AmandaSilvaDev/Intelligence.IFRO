@@ -6,17 +6,17 @@ import 'package:chamber_deputies/src/routes/router.dart';
 
 // Services
 import 'package:chamber_deputies/src/services/client.dart';
-// Models for Deputies
-import 'package:chamber_deputies/src/models/deputados.dart';
+
 // Repositories and Stores for Deputies Details
 import 'package:chamber_deputies/src/repositories/party.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party.dart';
 import 'package:chamber_deputies/src/armazena_dados/party_detalhes.dart';
-import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/informaçoes_partido.dart';
+
 
 
 class PartyDetails extends StatefulWidget {
-  final DeputiesModels party;
+  final Partymodels party;
 
   const PartyDetails({
     super.key,
@@ -96,8 +96,9 @@ class _PartyDetailsState extends State<PartyDetails> {
               );
             }
 
-            // ignore: non_constant_identifier_names
-            final PartyDetails = storePartyDetails.value.value;
+            
+            final partyDetails = storePartyDetails.value.value;
+            
 
             return SingleChildScrollView(
               child: Padding(
@@ -105,14 +106,20 @@ class _PartyDetailsState extends State<PartyDetails> {
                 child: Column(
                   children: [
                     Text(
-                      PartyDetails.nome ?? '',
+                      partyDetails.nome ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    InformationPartyWidget(
+                      party: widget.party,
+                      partyDetails: partyDetails,
+                    ),
                   ],
                 ),
               ),

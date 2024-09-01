@@ -1,3 +1,4 @@
+import 'package:chamber_deputies/src/models/party.dart';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ Route browserRouter(RouteSettings settings) {
     
     case '/party_detalhado':
       return MaterialPageRoute(
-        builder: (context) => const Party(),
+        builder: (context) => PartyDetails(
+          party: settings.arguments as Partymodels,
+        ),
 
       );
 

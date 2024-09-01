@@ -3,7 +3,7 @@ class PartyDetailsModel {
   final String? sigla;
   final int? idLegislatura;
   final int? totalMembros;
-  final String? status;
+  final String? urlLogo;
   final String? cpf;
   final String? sex;
   final String? website;
@@ -20,7 +20,7 @@ class PartyDetailsModel {
     this.sigla,
     this.idLegislatura,
     this.totalMembros,
-    this.status,
+    this.urlLogo,
     this.cpf,
     this.sex,
     this.website,
@@ -39,7 +39,7 @@ class PartyDetailsModel {
       sigla: map['sigla'] ?? '',
       idLegislatura: map['status']['idLegislatura'] ?? 0,
       totalMembros: map['status']['totalMembros'] ?? 0,
-      status: map['ultimoStatus']['descricaoStatus'] ?? '',
+      urlLogo: map['urllogo'] ?? '',
       cpf: map['cpf'] ?? '',
       sex: map['sexo'] ?? '',
       website: map['urlWebsite'] ?? '',

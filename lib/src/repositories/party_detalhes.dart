@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
 import 'package:chamber_deputies/src/services/client.dart';
 import 'package:chamber_deputies/src/models/deputado_detalhes.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
+import 'package:chamber_deputies/src/models/party.dart';
 
 class PartyDetailsRepository {
   final HttpClient client;

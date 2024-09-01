@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'package:chamber_deputies/src/screens/home.dart';
 import 'package:chamber_deputies/src/services/client.dart';
 import 'package:chamber_deputies/src/models/party.dart';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
 
 
 class PartyRepository {
@@ -37,7 +39,7 @@ Future<List<Partymodels>> getparty() async {
   }
    Future<List<Partymodels>> getpartyById(int id) async {
     final response = await client.get(
-      url: 'https://dadosabertos.camara.leg.br/api/v2/partidos/?$id)',
+      url: 'https://dadosabertos.camara.leg.br/api/v2/partidos/?$id',
     );
 
     if (response.statusCode == 200) {
@@ -59,8 +61,9 @@ Future<List<Partymodels>> getparty() async {
    Future<List<Partymodels>> filterparty(
     String? name,
     String? sigla,
-    int? id,
-    String? urlPhoto,
+    
+    String? urlLogo,
+    String? uri,
   ) async {
     final dynamic response;
     String url = 'https://dadosabertos.camara.leg.br/api/v2/partidos?';
@@ -70,9 +73,11 @@ Future<List<Partymodels>> getparty() async {
 
         : sigla != null
             ? 'siglaUf=$sigla'
+            : uri != null
+            ? 'uri=$uri'
             
-            : id != null
-                ? 'siglaPartido=$id': '';
+         
+            : '';
 
                 
     
@@ -101,7 +106,7 @@ Future<List<Partymodels>> getparty() async {
     String? urlPhoto,
   ) async {
     final dynamic response;
-    String url = 'https://dadosabertos.camara.leg.br/api/v2/partidos?$filterparty(id)';
+    String url = 'https://dadosabertos.camara.leg.br/api/v2/partidos?$id)';
 
     url += name != null
         ? 'nome=$name'
