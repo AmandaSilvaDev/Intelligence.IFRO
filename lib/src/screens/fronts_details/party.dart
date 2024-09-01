@@ -71,9 +71,11 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                   
                     ),
                   ),
+                  
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                      children: [
+                      
                       Text(
                         party.name,
                         overflow: TextOverflow.ellipsis,

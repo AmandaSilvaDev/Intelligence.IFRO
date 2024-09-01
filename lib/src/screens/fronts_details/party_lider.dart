@@ -62,7 +62,7 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Informações do Partido',
+                      'Lider',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -80,238 +80,97 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                     Expanded(
                       child: Column(
                         children: [
-                          CircleAvatar(
-                            radius: 50,
+                          Container(
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(254, 254, 254, 1),
+                    borderRadius: BorderRadius.circular(65),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 5,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                       child:    CircleAvatar(
+                            radius: 65,
                             backgroundImage: NetworkImage(
                               widget.partyDetails.urlFoto as String,
                             ),
-                          ),
+                          ),),
                           const SizedBox(height: 10),
-                    //       if (widget.deputy.name.length > 15)
-                    //         Text(
-                    //           '${widget.deputy.name.substring(0, 14)}...',
-                    //           style: const TextStyle(
-                    //             color: Colors.black,
-                    //             fontSize: 18,
-                    //             fontWeight: FontWeight.bold,
-                    //           ),
-                    //         ),
-                    //       if (widget.deputy.name.length <= 15)
-                    //         Text(
-                    //           widget.deputy.name,
-                    //           overflow: TextOverflow.ellipsis,
-                    //           style: const TextStyle(
-                    //             color: Colors.black,
-                    //             fontSize: 20,
-                    //             fontWeight: FontWeight.bold,
-                    //           ),
-                    //         ),
-                    //       Row(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           const Icon(
-                    //             color: Colors.black,
-                    //             Icons.group,
-                    //             size: 16,
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputy.party,
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 14,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       Row(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           const Icon(
-                    //             color: Colors.black,
-                    //             Icons.location_on,
-                    //             size: 16,
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputy.uf,
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 14,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    // Container(
-                    //   padding: const EdgeInsets.all(5),
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.black12,
-                    //     borderRadius: BorderRadius.circular(10),
-                    //   ),
-                    //   margin: const EdgeInsets.only(right: 10),
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [
-                    //       const Text(
-                    //         'Situação:',
-                    //         style: TextStyle(
-                    //           color: Colors.black,
-                    //           fontSize: 18,
-                    //           fontWeight: FontWeight.bold,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(width: 5),
-                    //       Text(
-                    //         widget.deputyDetails.situation ?? '',
-                    //         style: const TextStyle(
-                    //           color: Colors.black,
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       Column(
-                    //         crossAxisAlignment: CrossAxisAlignment.start,
-                    //         children: [
-                    //           const Text(
-                    //             'Condição Eleitoral:',
-                    //             style: TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           ),
-                    //           Text(
-                    //             widget.deputyDetails.condition ?? '',
-                    //             overflow: TextOverflow.ellipsis,
-                    //             maxLines: 1,
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       const Text(
-                    //         'Escolaridade:',
-                    //         style: TextStyle(
-                    //           color: Colors.black,
-                    //           fontSize: 18,
-                    //           fontWeight: FontWeight.bold,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(width: 5),
-                    //       Text(
-                    //         widget.deputyDetails.education ?? '',
-                    //         maxLines: 1,
-                    //         style: const TextStyle(
-                    //           color: Colors.black,
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       Row(
-                    //         children: [
-                    //           const Text(
-                    //             'Gênero:',
-                    //             style: TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputyDetails.sex ?? '',
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       Row(
-                    //         children: [
-                    //           const Text(
-                    //             'UF Nascimento: ',
-                    //             style: TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputyDetails.birthUf ?? '',
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       Column(
-                    //         crossAxisAlignment: CrossAxisAlignment.start,
-                    //         children: [
-                    //           const Text(
-                    //             'Data de Nascimento: ',
-                    //             style: TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputyDetails.birthDate ?? '',
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       if (widget.deputyDetails.deathDate != '')
-                    //         Row(
-                    //           children: [
-                    //             const Text(
-                    //               'Data de Falec.:',
-                    //               style: TextStyle(
-                    //                 color: Colors.black,
-                    //                 fontSize: 18,
-                    //                 fontWeight: FontWeight.bold,
-                    //               ),
-                    //             ),
-                    //             const SizedBox(width: 5),
-                    //             Text(
-                    //               widget.deputyDetails.deathDate ?? '',
-                    //               style: const TextStyle(
-                    //                 color: Colors.black,
-                    //                 fontSize: 18,
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       Row(
-                    //         children: [
-                    //           const Text(
-                    //             'CPF:',
-                    //             style: TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold,
-                    //             ),
-                    //           ),
-                    //           const SizedBox(width: 5),
-                    //           Text(
-                    //             widget.deputyDetails.cpf ?? '',
-                    //             style: const TextStyle(
-                    //               color: Colors.black,
-                    //               fontSize: 18,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
+                          
+                    Container(
+                      padding: const EdgeInsets.all(9),
+                      
+                      margin: const EdgeInsets.only(right: 170),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Nome:',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            widget.partyDetails.nomelider ?? '',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'UF:',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                widget.partyDetails.uflider ?? '',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: 5,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                            const Text(
+                            'Partido:',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            widget.partyDetails.sigla ?? '',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                            ],
+                          )
+                         
+                          
+                          
                         ],
                       ),
                     ),
@@ -320,11 +179,13 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
               ),
             ],
           ),
-        ],
+              ),],
         
       ),
       
       
-    );
-  }
+        ],
+      ),
+      );
+}
 }

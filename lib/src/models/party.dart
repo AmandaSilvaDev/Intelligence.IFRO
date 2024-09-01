@@ -1,3 +1,4 @@
+
 class Partymodels {
   final int id;
   final String uri;

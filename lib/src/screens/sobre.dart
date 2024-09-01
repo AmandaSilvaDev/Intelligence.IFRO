@@ -68,12 +68,12 @@ class About extends StatelessWidget {
               const SizedBox(height: 10), // Espaçamento entre widgets.
               
               // Informações sobre os desenvolvedores.
-              const Column(
+               const Column(
                 children: [
                   CircleAvatar(
-                    radius: 50, // Define o raio do avatar circular.
-                    backgroundImage: NetworkImage(
-                      '', // URL da imagem do desenvolvedor.
+                    radius: 50,
+                    backgroundImage:  NetworkImage(
+                      'assets/images/Amanda.JPEG',
                     ),
                   ),
                   SizedBox(height: 10), // Espaçamento entre widgets.
@@ -90,13 +90,13 @@ class About extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage(
-                      '',
+                    backgroundImage:  NetworkImage(
+                      'assets/images/Venicios.png',
                     ),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'VINI',
+                    'Venicios Rodrigues',
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -109,12 +109,12 @@ class About extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
-                      '',
+                      'assets/images/Luan.png',
                     ),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Mestre Luan',
+                    'Luan Pablo',
                     style: TextStyle(
                       fontSize: 18,
                     ),

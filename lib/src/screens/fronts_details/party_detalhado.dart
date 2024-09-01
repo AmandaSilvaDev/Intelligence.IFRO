@@ -103,7 +103,7 @@ class _PartyDetailsState extends State<PartyDetails> {
 
             return SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
                     Text( 

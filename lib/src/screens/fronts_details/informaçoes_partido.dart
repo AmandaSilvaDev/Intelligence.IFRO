@@ -75,9 +75,24 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
               Padding(
                 padding: const EdgeInsets.only(top:20,left: 2, right: 3, bottom: 20),
                 
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  
+                  children: [  
+                    SizedBox(
+                      
+                      width: 150,
+                      
+                      
+                      child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      
+                       Image.network(widget.partyDetails.urlLogo as String)
+                       
+                      ]
+                      ),
+                    ), //sizebox que contem a logo do partido 
                    
                     Container(
                       padding: const EdgeInsets.only(
@@ -100,7 +115,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                           ),
                           const SizedBox(width: 3),
                           Text(
-                            (widget.partyDetails.nome?? ''),
+                            (widget.partyDetails.sigla?? ''),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
