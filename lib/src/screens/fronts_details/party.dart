@@ -42,7 +42,7 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
           child: Container(
             decoration: BoxDecoration(
               color: const Color.fromRGBO(254, 254, 254, 1),
-              borderRadius: BorderRadius.circular(45),
+              borderRadius: BorderRadius.circular(40),
               boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
@@ -51,41 +51,28 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                 ),
               ],
             ), 
-            margin: const EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10,),
             child: Column(
               
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(254, 254, 254, 1),
-                    borderRadius: BorderRadius.circular(65),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: CircleAvatar(
-                    radius: 65,
-                    backgroundImage: NetworkImage(party.urlPhoto),
-                  ),
-                ),
+               
                 
-                const SizedBox(height: 5),
+                
                 Container(
-                  padding: const EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(18),
                   decoration: const BoxDecoration(
                     color:  Color.fromRGBO(254, 254, 254, 1),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40),
+                      topLeft: Radius.circular(45),
+                      topRight: Radius.circular(45)
+                  
                     ),
                   ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         party.name,

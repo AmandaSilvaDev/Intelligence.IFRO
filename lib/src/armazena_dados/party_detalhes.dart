@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
-import 'package:chamber_deputies/src/models/deputado_detalhes.dart';
+
 import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
 
 

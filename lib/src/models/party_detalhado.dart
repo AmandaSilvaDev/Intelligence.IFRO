@@ -1,10 +1,10 @@
 class PartyDetailsModel {
   final String? nome;
   final String? sigla;
-  final int? idLegislatura;
-  final int? totalMembros;
+  final String? idLegislatura;
+  final String? totalMembros;
   final String? urlLogo;
-  final String? cpf;
+  final String? urlFoto;
   final String? sex;
   final String? website;
   final List<dynamic>? socialMedia;
@@ -21,7 +21,7 @@ class PartyDetailsModel {
     this.idLegislatura,
     this.totalMembros,
     this.urlLogo,
-    this.cpf,
+    this.urlFoto,
     this.sex,
     this.website,
     this.socialMedia,
@@ -37,10 +37,10 @@ class PartyDetailsModel {
     return PartyDetailsModel(
       nome: map['nome'] ?? '',
       sigla: map['sigla'] ?? '',
-      idLegislatura: map['status']['idLegislatura'] ?? 0,
-      totalMembros: map['status']['totalMembros'] ?? 0,
-      urlLogo: map['urllogo'] ?? '',
-      cpf: map['cpf'] ?? '',
+      idLegislatura: map['status']['idLegislatura'] ??'',
+      totalMembros: map['status']['totalMembros'] ??'' ,
+      urlLogo: map['urlFoto'] ?? '',
+      urlFoto: map['status']['lider']['urlFoto'] ?? '',
       sex: map['sexo'] ?? '',
       website: map['urlWebsite'] ?? '',
       socialMedia: map['redeSocial'] ?? [],
@@ -49,7 +49,10 @@ class PartyDetailsModel {
       birthUf: map['ufNascimento'] ?? '',
       birthCity: map['municipioNascimento'] ?? '',
       education: map['escolaridade'] ?? '',
-      cabinet: map['ultimoStatus']['gabinete'] ?? {},
+      
+      
     );
   }
 }
+
+

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 // Models Deputies
@@ -44,9 +46,9 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
             children: [
               Container(
                 padding: const EdgeInsets.only(
-                  top: 10,
-                  left: 10,
-                  right: 10,
+                  top: 8,
+                  left: 8,
+                  right: 8,
                   bottom: 5,
                 ),
                 decoration: const BoxDecoration(
@@ -60,7 +62,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Informações do Deputado',
+                      'Informações do Partido',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -71,97 +73,32 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 10),
+                padding: const EdgeInsets.only(top:20,left: 2, right: 3, bottom: 20),
+                
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 50,
-                            backgroundImage: NetworkImage(
-                              widget.party.urlPhoto,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          if (widget.party.name.length > 15)
-                            Text(
-                              '${widget.party.name.substring(0, 14)}...',
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          if (widget.party.name.length <= 15)
-                            Text(
-                              widget.party.name,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                color: Colors.black,
-                                Icons.group,
-                                size: 16,
-                              ),
-                              const SizedBox(width: 5),
-                              Text(
-                                widget.party.sigla,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                color: Colors.black,
-                                Icons.location_on,
-                                size: 16,
-                              ),
-                              const SizedBox(width: 5),
-                              Text(
-                                widget.party.uf,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                   
                     Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      margin: const EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.only(
+                        top: 2,
+                        right: 190,
+                        left: 1,
+                        bottom: 1),
+                     
+                   
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Situação:',
+                            'Sigla do partido:',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(width: 5),
+                          const SizedBox(width: 3),
                           Text(
                             (widget.partyDetails.nome?? ''),
                             style: const TextStyle(
@@ -173,7 +110,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                'Condição Eleitoral:',
+                                'Numero do partido:',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,
@@ -181,8 +118,8 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                                 ),
                               ),
                               Text(
-                                widget.party.uri,
-                                overflow: TextOverflow.ellipsis,
+                                widget.partyDetails.idLegislatura?? '' ,
+                                
                                 maxLines: 1,
                                 style: const TextStyle(
                                   color: Colors.black,
@@ -191,23 +128,23 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                               ),
                             ],
                           ),
-                          // const Text(
-                          //   'Escolaridade:',
-                          //   style: TextStyle(
-                          //     color: Colors.black,
-                          //     fontSize: 18,
-                          //     fontWeight: FontWeight.bold,
-                          //   ),
-                          // ),
-                          // const SizedBox(width: 5),
-                          // Text(
-                          //   widget.deputyDetails.education ?? '',
-                          //   maxLines: 1,
-                          //   style: const TextStyle(
-                          //     color: Colors.black,
-                          //     fontSize: 18,
-                          //   ),
-                          // ),
+                          const Text(
+                            'Total de deputados',
+                            style: TextStyle(
+                               color: Colors.black,
+                               fontSize: 18,
+                               fontWeight: FontWeight.bold,
+                             ),
+                          ),
+                            const SizedBox(width: 5),
+                           Text(
+                            widget.partyDetails.totalMembros ?? '',
+                            maxLines: 1,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
                           // Row(
                           //   children: [
                           //     const Text(
@@ -319,7 +256,10 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
             ],
           ),
         ],
+        
       ),
+      
+      
     );
   }
 }

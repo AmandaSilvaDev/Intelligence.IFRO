@@ -29,5 +29,7 @@ class Partymodels {
       email: map['email'] ?? '',
     );
   }
+
+ 
   
 }

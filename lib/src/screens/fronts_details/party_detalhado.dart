@@ -12,6 +12,7 @@ import 'package:chamber_deputies/src/repositories/party.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party.dart';
 import 'package:chamber_deputies/src/armazena_dados/party_detalhes.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/informaçoes_partido.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/party_lider.dart';
 
 
 
@@ -102,10 +103,10 @@ class _PartyDetailsState extends State<PartyDetails> {
 
             return SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Text(
+                    Text( 
                       partyDetails.nome ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
@@ -120,6 +121,9 @@ class _PartyDetailsState extends State<PartyDetails> {
                       party: widget.party,
                       partyDetails: partyDetails,
                     ),
+                    LiderPartyWidget(
+                      party: widget.party, 
+                      partyDetails: partyDetails,)
                   ],
                 ),
               ),

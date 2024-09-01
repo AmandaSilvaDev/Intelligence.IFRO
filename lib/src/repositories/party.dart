@@ -62,7 +62,7 @@ Future<List<Partymodels>> getparty() async {
     String? name,
     String? sigla,
     
-    String? urlLogo,
+    String? urllogo,
     String? uri,
   ) async {
     final dynamic response;
