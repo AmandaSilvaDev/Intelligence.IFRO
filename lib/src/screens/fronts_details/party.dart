@@ -52,15 +52,16 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
               ],
             ), 
             margin: const EdgeInsets.symmetric(vertical: 10,),
-            child: Column(
+            child: Row(
               
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              
               children: [
                
                 
                 
                 Container(
-                  padding: const EdgeInsets.all(18),
+                  padding: const EdgeInsets.all(13),
                   decoration: const BoxDecoration(
                     color:  Color.fromRGBO(254, 254, 254, 1),
                     borderRadius: BorderRadius.only(
@@ -106,7 +107,23 @@ class _ListPartyWidgetState extends State<ListPartyWidget> {
                       ),
                       
                     ],
+                  
                   ),
+                  
+                ),
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                     Text(
+                        '>',
+                        overflow: TextOverflow.fade,
+                            style: TextStyle(
+                              color:Color.fromRGBO(144, 180, 113, 1),
+                              fontSize: 30,
+                            ),
+                            ),
+                  ],
+                  
                 ),
               ],
             ),
