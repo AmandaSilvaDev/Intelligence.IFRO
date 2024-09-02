@@ -1,4 +1,4 @@
-class PartyDetailsModel {
+class PartyDetailsMode {
   final String? nome;
   final String? sigla;
   final String? idLegislatura;
@@ -15,7 +15,7 @@ class PartyDetailsModel {
   final String? education;
   final Map<String, dynamic>? cabinet;
 
-  PartyDetailsModel({
+  PartyDetailsMode({
     this.nome,
     this.sigla,
     this.idLegislatura,
@@ -33,13 +33,13 @@ class PartyDetailsModel {
     this.cabinet,
   });
 
-  factory PartyDetailsModel.fromMap(Map<String, dynamic> map) {
-    return PartyDetailsModel(
+  factory PartyDetailsMode.fromMap(Map<String, dynamic> map) {
+    return PartyDetailsMode(
       nome: map['nome'] ?? '',
       sigla: map['sigla'] ?? '',
       idLegislatura: map['status']['idLegislatura'] ??'',
       totalMembros: map['status']['totalMembros'] ??'' ,
-      urlLogo: map['urlLogo'] ?? '',
+      urlLogo: map['urlLogo'] ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
       urlFoto: map['status']['lider']['urlFoto'] ?? '',
       nomelider: map['status']['lider']['nome'] ?? '',
       uflider: map['status']['lider']['uf'] ?? '',
@@ -54,5 +54,3 @@ class PartyDetailsModel {
     );
   }
 }
-
-

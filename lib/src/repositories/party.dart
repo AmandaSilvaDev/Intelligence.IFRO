@@ -1,9 +1,6 @@
 import 'dart:convert';
-import 'package:chamber_deputies/src/screens/home.dart';
 import 'package:chamber_deputies/src/services/client.dart';
 import 'package:chamber_deputies/src/models/party.dart';
-import 'package:chamber_deputies/src/models/party_detalhado.dart';
-import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
 
 
 class PartyRepository {

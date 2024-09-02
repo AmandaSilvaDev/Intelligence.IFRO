@@ -1,23 +1,24 @@
-import 'package:chamber_deputies/src/screens/deputy_details/widgets/cabinet_widget.dart';
+import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/partymembers.dart';
 import 'package:flutter/material.dart';
 import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
 import 'package:chamber_deputies/src/models/party.dart';
-import 'package:chamber_deputies/src/routes/router.dart';
 
 // Services
 import 'package:chamber_deputies/src/services/client.dart';
 
 // Repositories and Stores for Deputies Details
-import 'package:chamber_deputies/src/repositories/party.dart';
-import 'package:chamber_deputies/src/screens/fronts_details/party.dart';
 import 'package:chamber_deputies/src/armazena_dados/party_detalhes.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/informaçoes_partido.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party_lider.dart';
+import 'package:chamber_deputies/src/screens/fronts_details/partymembers.dart';
+
 
 
 
 class PartyDetails extends StatefulWidget {
   final Partymodels party;
+
 
   const PartyDetails({
     super.key,
@@ -40,9 +41,11 @@ class _PartyDetailsState extends State<PartyDetails> {
       repository: PartyDetailsRepository(
         client: HttpClient(),
         idParty: widget.party.id,
+        siglaPartido: widget.party.sigla
       ),
     );
     storePartyDetails.getPartyDetails();
+    storePartyDetails.getPartymembers();
   }
 
   @override
@@ -121,9 +124,12 @@ class _PartyDetailsState extends State<PartyDetails> {
                       party: widget.party,
                       partyDetails: partyDetails,
                     ),
+                    
                     LiderPartyWidget(
                       party: widget.party, 
-                      partyDetails: partyDetails,)
+                      partyDetails: partyDetails,),
+                      
+                    
                   ],
                 ),
               ),

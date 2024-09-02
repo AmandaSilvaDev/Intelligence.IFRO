@@ -1,17 +1,19 @@
 import 'dart:convert';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
 import 'package:chamber_deputies/src/services/client.dart';
-import 'package:chamber_deputies/src/models/deputado_detalhes.dart';
-import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
-import 'package:chamber_deputies/src/models/party.dart';
+import 'package:chamber_deputies/src/models/partymembers.dart';
+
+
 
 class PartyDetailsRepository {
   final HttpClient client;
   final int idParty;
+  final String siglaPartido;
 
   PartyDetailsRepository({
     required this.client,
-    required this.idParty,
+    required this.idParty, 
+    required this.siglaPartido
   });
 
   Future<PartyDetailsModel> getPartyDetails() async {
@@ -22,6 +24,22 @@ class PartyDetailsRepository {
     if (response.statusCode == 200) {
       final bodyDecode = jsonDecode(response.body);
       return PartyDetailsModel.fromMap(bodyDecode['dados']);
+    } else if (response.statusCode == 404) {
+      throw Exception('Url informada não encontrada!');
+    } else {
+      throw Exception('Erro: ${response.statusCode}');
+    }
+  }
+
+
+Future<PartyDetailsMode> getPartymembers() async {
+    final response = await client.get(
+      url: 'https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=&siglaPartido=$siglaPartido',
+    );
+
+    if (response.statusCode == 200) {
+      final bodyDecode = jsonDecode(response.body);
+      return PartyDetailsMode.fromMap(bodyDecode['dados']);
     } else if (response.statusCode == 404) {
       throw Exception('Url informada não encontrada!');
     } else {

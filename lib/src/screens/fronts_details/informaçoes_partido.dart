@@ -1,12 +1,9 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 // Models Deputies
-import 'package:chamber_deputies/src/models/deputados.dart';
 import 'package:chamber_deputies/src/models/party.dart';
 // Models for Deputy Details
-import 'package:chamber_deputies/src/models/deputado_detalhes.dart';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
 
 
@@ -160,109 +157,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                               fontSize: 18,
                             ),
                           ),
-                          // Row(
-                          //   children: [
-                          //     const Text(
-                          //       'Gênero:',
-                          //       style: TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //         fontWeight: FontWeight.bold,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(width: 5),
-                          //     Text(
-                          //       widget.deputyDetails.sex ?? '',
-                          //       style: const TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // Row(
-                          //   children: [
-                          //     const Text(
-                          //       'UF Nascimento: ',
-                          //       style: TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //         fontWeight: FontWeight.bold,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(width: 5),
-                          //     Text(
-                          //       widget.deputyDetails.birthUf ?? '',
-                          //       style: const TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // Column(
-                          //   crossAxisAlignment: CrossAxisAlignment.start,
-                          //   children: [
-                          //     const Text(
-                          //       'Data de Nascimento: ',
-                          //       style: TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //         fontWeight: FontWeight.bold,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(width: 5),
-                          //     Text(
-                          //       widget.deputyDetails.birthDate ?? '',
-                          //       style: const TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // if (widget.deputyDetails.deathDate != '')
-                          //   Row(
-                          //     children: [
-                          //       const Text(
-                          //         'Data de Falec.:',
-                          //         style: TextStyle(
-                          //           color: Colors.black,
-                          //           fontSize: 18,
-                          //           fontWeight: FontWeight.bold,
-                          //         ),
-                          //       ),
-                          //       const SizedBox(width: 5),
-                          //       Text(
-                          //         widget.deputyDetails.deathDate ?? '',
-                          //         style: const TextStyle(
-                          //           color: Colors.black,
-                          //           fontSize: 18,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // Row(
-                          //   children: [
-                          //     const Text(
-                          //       'CPF:',
-                          //       style: TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //         fontWeight: FontWeight.bold,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(width: 5),
-                          //     Text(
-                          //       widget.deputyDetails.cpf ?? '',
-                          //       style: const TextStyle(
-                          //         color: Colors.black,
-                          //         fontSize: 18,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                        ],
+                                              ],
                       ),
                     ),
                   ],

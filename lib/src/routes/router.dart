@@ -1,11 +1,9 @@
 import 'package:chamber_deputies/src/models/party.dart';
-import 'package:chamber_deputies/src/models/party_detalhado.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
 import 'package:flutter/material.dart';
 
 // Home
 import 'package:chamber_deputies/src/screens/home.dart';
-import 'package:chamber_deputies/src/screens/fronts_details/party_detalhado.dart';
 // Deputies
 import 'package:chamber_deputies/src/models/deputados.dart';
 import 'package:chamber_deputies/src/screens/deputy_details/deputy_details.dart';

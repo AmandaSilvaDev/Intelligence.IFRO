@@ -6,7 +6,6 @@ import 'package:chamber_deputies/src/services/client.dart';
 // Routes
 import 'package:chamber_deputies/src/routes/router.dart';
 // Models, repositories and stores of deputies
-import 'package:chamber_deputies/src/screens/home.dart';
 import 'package:chamber_deputies/src/models/deputados.dart';
 import 'package:chamber_deputies/src/repositories/deputies.dart';
 import 'package:chamber_deputies/src/armazena_dados/deputies.dart';

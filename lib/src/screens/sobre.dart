@@ -73,7 +73,7 @@ class About extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage:  NetworkImage(
-                      'assets/images/Amanda.JPEG',
+                      'https://github.com/AmandaSilvaDev/Intelligence.IFRO/blob/main/assets/images/Amanda.jpeg?raw=true',
                     ),
                   ),
                   SizedBox(height: 10), // Espaçamento entre widgets.
@@ -91,7 +91,7 @@ class About extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage:  NetworkImage(
-                      'assets/images/Venicios.png',
+                      'https://github.com/AmandaSilvaDev/Intelligence.IFRO/blob/14de7c6ab253ddaa8b5e0c19d473734f3856deb0/assets/images/Venicios.png?raw=true',
                     ),
                   ),
                   SizedBox(height: 10),
@@ -109,7 +109,7 @@ class About extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
-                      'assets/images/Luan.png',
+                      'https://github.com/AmandaSilvaDev/Intelligence.IFRO/blob/main/assets/images/Luan.png?raw=true',
                     ),
                   ),
                   SizedBox(height: 10),
