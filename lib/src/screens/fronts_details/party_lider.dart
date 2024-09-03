@@ -8,6 +8,7 @@ import 'package:chamber_deputies/src/models/party.dart';
 // Models for Deputy Details
 import 'package:chamber_deputies/src/models/deputado_detalhes.dart';
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:gap/gap.dart';
 
 
 class LiderPartyWidget extends StatefulWidget {
@@ -62,20 +63,21 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Lider',
+                      'Líder na câmara dos deputados',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                  
                   ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Column(
@@ -102,9 +104,9 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                           const SizedBox(height: 10),
                           
                     Container(
-                      padding: const EdgeInsets.all(9),
+                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                       
-                      margin: const EdgeInsets.only(right: 170),
+                      margin: const EdgeInsets.only(right: 172),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -116,14 +118,14 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(width: 5),
+                         const Gap(5),
                           Text(
                             widget.partyDetails.nomelider ?? '',
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                             ),
-                          ),
+                          ),const Gap(5),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -134,7 +136,7 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ),
+                              ),const Gap(5),
                               Text(
                                 widget.partyDetails.uflider ?? '',
                                 overflow: TextOverflow.ellipsis,
@@ -143,10 +145,10 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                                   color: Colors.black,
                                   fontSize: 18,
                                 ),
-                              ),
+                              ),const Gap(5),
                             ],
                           ),
-                          const SizedBox(width: 5,),
+                         
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -158,7 +160,7 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(width: 5),
+                          const Gap(5),
                           Text(
                             widget.partyDetails.sigla ?? '',
                             style: const TextStyle(
@@ -166,6 +168,7 @@ class _LiderPartyWidgetState extends State<LiderPartyWidget> {
                               fontSize: 18,
                             ),
                           ),
+                          const Gap(5),
                             ],
                           )
                          

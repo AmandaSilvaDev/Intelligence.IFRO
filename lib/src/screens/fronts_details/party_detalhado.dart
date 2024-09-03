@@ -1,4 +1,5 @@
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:chamber_deputies/src/repositories/partymembers.dart';
 import 'package:chamber_deputies/src/screens/fronts_details/partymembers.dart';
 import 'package:flutter/material.dart';
 import 'package:chamber_deputies/src/repositories/party_detalhes.dart';
@@ -33,6 +34,7 @@ class _PartyDetailsState extends State<PartyDetails> {
   static const String titleAppBar = 'Detalhes do Partido';
   late PartyDetailsStore storePartyDetails;
 
+
   @override
   void initState() {
     super.initState();
@@ -41,11 +43,11 @@ class _PartyDetailsState extends State<PartyDetails> {
       repository: PartyDetailsRepository(
         client: HttpClient(),
         idParty: widget.party.id,
-        siglaPartido: widget.party.sigla
+        
       ),
     );
     storePartyDetails.getPartyDetails();
-    storePartyDetails.getPartymembers();
+    
   }
 
   @override
@@ -113,8 +115,9 @@ class _PartyDetailsState extends State<PartyDetails> {
                       partyDetails.nome ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       ),
                     ),
                     const SizedBox(
@@ -124,12 +127,13 @@ class _PartyDetailsState extends State<PartyDetails> {
                       party: widget.party,
                       partyDetails: partyDetails,
                     ),
-                    
+                    const SizedBox(
+                      height: 18,),
                     LiderPartyWidget(
                       party: widget.party, 
-                      partyDetails: partyDetails,),
-                      
-                    
+                      partyDetails: partyDetails,), 
+                                     
+        
                   ],
                 ),
               ),

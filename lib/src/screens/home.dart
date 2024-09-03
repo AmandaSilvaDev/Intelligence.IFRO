@@ -97,50 +97,7 @@ class _HomeState extends State<Home> {
 }
 
 // Widget para exibir o conteúdo da tela inicial.
-class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    
-    return Container( 
-      color: const Color.fromRGBO(254, 254, 254, 1), // Cor de fundo do Container.
-      
-      child: ListView(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0,bottom: 8.0 ), // Adiciona padding ao Container.
-            child: Image.asset(
-              'assets/images/logo_3.png', // Imagem exibida na tela inicial.
-              height: 140, // Altura da imagem.
-            
-            
-            ),
-          ),
-             Column(
-              
-              children: [
-                
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 20, 30, 30),
-                  child: Image.asset('assets/images/logo_3.png'),
-                )
-              ],
-              
-            )
-               
-        
-        
-        
-        
-        ],
-        
-      ),
-  
-    );
-  }
-  
-}
 class Party extends StatefulWidget {
   const Party ({super.key});
 

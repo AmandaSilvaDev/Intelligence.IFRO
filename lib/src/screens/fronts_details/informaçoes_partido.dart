@@ -1,10 +1,13 @@
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 // Models Deputies
 import 'package:chamber_deputies/src/models/party.dart';
 // Models for Deputy Details
 import 'package:chamber_deputies/src/models/party_detalhado.dart';
+import 'package:gap/gap.dart';
 
 
 class InformationPartyWidget extends StatefulWidget {
@@ -76,21 +79,30 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   
                   children: [  
-                    SizedBox(
+                    Container(
+                      height: 100,
+                      width: 100,
+                      padding: const EdgeInsets.all(10),
+                      decoration: 
                       
-                      width: 150,
-                      
-                      
-                      child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                      
-                       Image.network(widget.partyDetails.urlLogo as String)
+                     BoxDecoration(
+                        image: DecorationImage(image: 
+                       NetworkImage(widget.partyDetails.urlLogo as String)
                        
-                      ]
+                        ),
+                       color: Colors.white,
+                    borderRadius: BorderRadius.circular(60),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        offset: Offset(0, 10)
                       ),
-                    ), //sizebox que contem a logo do partido 
-                   
+                    ],
+                      
+                      ),
+                    ), //container que contem a logo do partido 
+                     const Gap(15),
                     Container(
                       padding: const EdgeInsets.only(
                         top: 2,
@@ -110,7 +122,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(width: 3),
+                          const Gap(5),
                           Text(
                             (widget.partyDetails.sigla?? ''),
                             style: const TextStyle(
@@ -118,17 +130,19 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                               fontSize: 18,
                             ),
                           ),
+                            const Gap(5),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                'Numero do partido:',
+                                'Numero legislatura:',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                               const Gap(5),
                               Text(
                                 widget.partyDetails.idLegislatura?? '' ,
                                 
@@ -138,6 +152,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                                   fontSize: 18,
                                 ),
                               ),
+                              const Gap(5),
                             ],
                           ),
                           const Text(
@@ -148,8 +163,8 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                                fontWeight: FontWeight.bold,
                              ),
                           ),
-                            const SizedBox(width: 5),
-                           Text(
+                            const Gap(5),
+                           Text( 
                             widget.partyDetails.totalMembros ?? '',
                             maxLines: 1,
                             style: const TextStyle(
@@ -157,6 +172,7 @@ class _InformationPartyWidgetState extends State<InformationPartyWidget> {
                               fontSize: 18,
                             ),
                           ),
+                          const Gap(5),
                                               ],
                       ),
                     ),
