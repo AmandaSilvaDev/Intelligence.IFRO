@@ -196,6 +196,7 @@ class _PartyState extends State<Party> {
                         hintText: 'Pesquisar por ${options[_selectedOption]}',
                         filled: true,
                         fillColor: Colors.grey[200],
+                        
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide.none,
@@ -241,7 +242,7 @@ class _PartyState extends State<Party> {
                                 title: const Text(
                                   'Filtrar por:',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color:  Color.fromRGBO(144, 180, 113, 1),
                                     fontSize: 20,
                                   ),
                                 ),
@@ -255,7 +256,7 @@ class _PartyState extends State<Party> {
                                         child: Text(
                                           entry.value,
                                           style: const TextStyle(
-                                            color: Colors.black54,
+                                            color:  Color.fromRGBO(144, 180, 113, 1),
                                             fontSize: 20,
                                           ),
                                         ),
